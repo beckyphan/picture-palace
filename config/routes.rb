@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'movies#landing'
   resources :comments
   resources :reviews
   resources :events
