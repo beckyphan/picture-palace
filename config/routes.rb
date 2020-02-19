@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/login'
+  get 'sessions/logout'
   root 'movies#landing'
 
   resources :events do
