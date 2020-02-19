@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
+
   def new
+    @user = User.new
   end
 
   def create
+    params.inspect
   end
 
   def edit
@@ -15,6 +18,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-  end 
+  end
 
 end
