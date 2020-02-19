@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'sessions/login'
+  get 'sessions/login', to: 'sessions#new'
   post 'sessions/login'
   delete 'sessions/logout'
   root 'movies#landing'
@@ -18,7 +18,7 @@ end
 
 # Prefix Verb   URI Pattern                                                                              Controller#Action
 #                                  root GET    /                                                              movies#landing
-#                        sessions_login GET    /sessions/login(.:format)                                      sessions#login
+#                        sessions_login GET    /sessions/login(.:format)                                      sessions#new
 #                                       POST   /sessions/login(.:format)                                      sessions#login
 #                       sessions_logout DELETE /sessions/logout(.:format)                                     sessions#logout
 # #                        event_comments GET    /events/:event_id/comments(.:format)                         comments#index
