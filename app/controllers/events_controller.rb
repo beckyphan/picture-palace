@@ -5,6 +5,15 @@ class EventsController < ApplicationController
   end
 
   def create
+    @event = Event.new
+
+    if @movie.save
+      flash.now[:notice] = "Event Added!"
+      redirect_to events_path
+    else
+      flash.now[:alert] = "Errors on page. Please correct:"
+      render 'new'
+    end
   end
 
   def new

@@ -1,7 +1,8 @@
 <%= new_movie_errors(@movie).html_safe %>
 <br>
-
-<h1>Add New Movie</h1>
+<div class='page-title'>
+  <h1>Add New Movie</h1>
+</div>
 
 <div class="form">
   <%= form_with model: @movie, class: "movies-form" do |f| %>
