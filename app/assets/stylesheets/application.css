@@ -56,8 +56,22 @@
   border-radius: 25px;
   background: white;
   padding: 20px;
-  width: 200px;
-  max-height: 150px;
+  max-width: 50%;
+  max-height: 200px;
+ }
+
+ .banner-form {
+   margin: 0 auto;
+   border-radius: 15px;
+   background: white;
+   padding: 5px;
+   display: flex;
+   justify-content: space-around;
+   align-items: flex-start;
+ }
+
+ .banner-form span {
+   padding: 5px;
  }
 
  .field_with_errors input {
