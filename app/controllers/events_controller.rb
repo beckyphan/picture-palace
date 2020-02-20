@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
 
   def index
+    @events = Event.all
   end
 
   def create
@@ -20,5 +21,5 @@ class EventsController < ApplicationController
 
   def destroy
   end
-  
+
 end
