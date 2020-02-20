@@ -37,6 +37,16 @@
    margin: 0 auto;
  }
 
+ p.alert, p.notice {
+   padding: 5px;
+   text-align: center;
+   width: 100%;
+ }
+
+ p.alert {
+   color: red;
+ }
+
  .nav-link {
 
  }
