@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'sessions/login', to: 'sessions#new'
+  get 'login', to: 'sessions#new'
   post 'sessions/login'
   delete 'sessions/logout'
   root 'movies#landing'
@@ -12,7 +12,9 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
-  resources :users, only: [:create, :new, :edit, :show, :update, :destroy]
+  resources :users, only: [:create, :edit, :show, :update, :destroy]
+  get 'signup', to: 'users#new'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
 
@@ -58,7 +60,7 @@ end
 #                                       DELETE /movies/:id(.:format)                                          movies#destroy
 
 #                                 users POST   /users(.:format)                                               users#create
-#                              new_user GET    /users/new(.:format)                                           users#new
+#                              signup GET    /signup(.:format)                                                users#new
 #                             edit_user GET    /users/:id/edit(.:format)                                      users#edit
 #                                  user GET    /users/:id(.:format)                                           users#show
 #                                       PATCH  /users/:id(.:format)                                           users#update
