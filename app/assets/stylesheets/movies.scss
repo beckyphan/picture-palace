@@ -18,6 +18,15 @@
   max-width: 200px;
 }
 
+.movie-card {
+  opacity: 0.5;
+}
+
+.movie-card:hover {
+  opacity: 1;
+  transition: opacity 500ms linear;
+}
+
 .movie-card img {
   margin: 0 auto;
   width: 200px;

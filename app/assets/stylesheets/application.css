@@ -84,3 +84,8 @@
   text-decoration: none;
   color: black;
 }
+
+a:hover {
+  opacity: 1;
+  transition: opacity 500ms linear;
+}
