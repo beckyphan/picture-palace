@@ -19,12 +19,12 @@
 }
 
 .movie-card {
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 .movie-card:hover {
   opacity: 1;
-  transition: opacity 500ms linear;
+  transition: opacity 300ms linear;
 }
 
 .movie-card img {
