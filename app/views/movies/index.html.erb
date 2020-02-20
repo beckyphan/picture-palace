@@ -1,0 +1,28 @@
+<h1>movies</h1>
+
+<div>
+
+  <div class="banner-form">
+    <span><h3>Add a New Movie</h3></span>
+    <%= form_with model: @movie, class: "movies-form" do |f| %>
+      <br>
+      <span> <%= f.label :movie_title, "Title" %>
+              <%= f.text_field :movie_title %> </span>
+
+      <span> <%= f.label :genre, "Main Genre" %>
+              <%= f.text_field :genre %> </span>
+
+      <span> <%= f.label :year %>
+              <%= f.text_field :year %>  </span>
+
+      <span> <%= f.label :image_url, "Image URL" %>
+              <%= f.text_field :image_url %> </span>
+      <br>
+      <span>  <%= f.submit "Add Movie"%> </span>
+    <% end %>
+  </div>
+
+  <div class="movies gallery">
+
+  </div>
+</div>

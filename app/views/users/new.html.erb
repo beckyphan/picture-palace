@@ -5,16 +5,16 @@
 
 <div class="form">
   <%= form_with model: @user, class: "registration-form" do |f| %>
-    <%= f.label:name %>
+    <%= f.label :name %>
     <%= f.text_field :name %> <br>
 
-    <%= f.label:username %>
+    <%= f.label: username %>
     <%= f.text_field :username %> <br>
 
-    <%= f.label:email %>
+    <%= f.label :email %>
     <%= f.email_field :email %>  <br>
 
-    <%= f.label:passsword %>
+    <%= f.label :passsword %>
     <%= f.password_field :password %> <br> <br>
 
     <%= f.submit "Sign Up"%>

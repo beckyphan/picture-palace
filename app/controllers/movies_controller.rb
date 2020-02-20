@@ -4,12 +4,25 @@ class MoviesController < ApplicationController
   end
 
   def index
+    @movie = Movie.new
+
+    @movies = Movie.all
   end
 
   def create
+    @movie = Movie.new(movie_params)
+
+    if @movie.save
+      flash.now[:notice] = "Movie Added!"
+      redirect_to movies_path
+    else
+      flash.now[:alert] = "Errors on page. Please correct:"
+      render 'new'
+    end
   end
 
   def new
+    @movie = Movie.new
   end
 
   def edit
@@ -23,5 +36,11 @@ class MoviesController < ApplicationController
 
   def destroy
   end
-  
+
+  private
+
+  def movie_params
+    params.require(:movie).permit(:movie_title, :genre, :year, :image_url)
+  end
+
 end
