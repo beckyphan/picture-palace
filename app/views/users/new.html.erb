@@ -1,6 +1,7 @@
+<%= registration_errors(@user).html_safe %>
+<br>
+
 <h1>Registration</h1>
-<br>
-<br>
 
 <div class="form">
   <%= form_with model: @user, class: "registration-form" do |f| %>

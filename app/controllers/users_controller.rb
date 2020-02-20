@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       flash.now[:notice] = "Welcome #{@user.name}!"
       redirect_to user_path(@user)
     else
-      flash.now[:alert] = @user.errors.full_messages
+      flash.now[:alert] = "Errors on page. Please correct:"
       render 'new'
     end
   end
