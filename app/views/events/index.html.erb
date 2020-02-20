@@ -4,7 +4,20 @@
 
 <div class="two-column-body">
   <div class="column-2-left bubble-container">
-
+    <div class="gallery">
+      <% @events.each do |e| %>
+       <div class="bubble-card">
+         <%= link_to event_path(e) do %>
+          <div class="movie-card">
+            <span class="movie-info">
+              <h2><%= e.event_title %></h2>
+              <p><%= e.date_time %> | <%= e.location %></p>
+            </span>
+          </div>
+         <% end %>
+       </div>
+      <% end %>
+    </div>
   </div>
 
 <br>
