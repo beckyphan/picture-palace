@@ -7,7 +7,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new
 
-    if @movie.save
+    if @event.save
       flash.now[:notice] = "Event Added!"
       redirect_to events_path
     else
