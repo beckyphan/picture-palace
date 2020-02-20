@@ -30,6 +30,12 @@
    justify-content: space-around;
  }
 
+ input[type=submit] {
+   cursor: pointer;
+   display: block;
+   margin: 0 auto;
+ }
+
  .nav-link {
 
  }
