@@ -16,14 +16,16 @@
       <br> Host: <%= current_user.name %></br>
 
       <br> <%= f.label :event_title, "Title" %>
-              <%= f.text_field :event_title %> </br>
+            <%= f.text_field :event_title %> </br>
 
       <br> <%= f.label :date_time, "Date/Time" %>
-              <%= f.datetime_field :date_time %> </br>
+            <%= f.datetime_field :date_time %> </br>
+
+      <br> <%= f.label :location %>
+            <%= f.text_field :location%> </br>
 
       <br> <%= f.label :movie_id, "Movie" %>
-              <%= f.collection_select :movie_id, Movie.all, :id, :movie_title, prompt: true %>  </br>
-
+            <%= f.collection_select :movie_id, Movie.all, :id, :movie_title, prompt: true %>  </br>
       <br>
       <br>  <%= f.submit "Create Event" %> </br>
     <% end %>
