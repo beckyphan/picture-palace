@@ -37,6 +37,10 @@
    margin: 0 auto;
  }
 
+ div.page-title {
+   text-align: center;
+ }
+
  p.alert, p.notice {
    padding: 5px;
    text-align: center;
