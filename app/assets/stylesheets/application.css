@@ -78,3 +78,9 @@
    background-color: #ffdddd;
    border: 1px solid #DC143C;
  }
+
+ a:link, a:visited {
+  opacity: 0.5;
+  text-decoration: none;
+  color: black;
+}

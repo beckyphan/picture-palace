@@ -22,7 +22,21 @@
     <% end %>
   </div>
 
-  <div class="movies gallery">
+<br>
 
+  <div class="gallery">
+    <% @movies.each do |m| %>
+     <div class="bubble-card">
+       <%= link_to movie_path(m) do %>
+        <div class="movie-card">
+          <img src='<%= m.image_url %>'>
+          <span class="movie-info">
+            <h2><%= m.movie_title %></h2>
+            <p><%= m.genre %></p>
+          </span>
+        </div>
+       <% end %>
+     </div>
+    <% end %>
   </div>
 </div>
