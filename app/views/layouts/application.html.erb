@@ -13,18 +13,18 @@
 
     <!-- if logged in, show this nav bar -->
     <nav>
-      <%# <%= link_to "Home", users_path(current_user), class: "nav-link" %>
-      <%= link_to "Movies", movies_path, class: "nav-link" %>
-      <%= link_to "Events", events_path, class: "nav-link" %>
-      <%= link_to "Log-Out", sessions_logout_path, class: "nav-link" %>
+      <span><%#= link_to "Home", users_path(current_user), class: "nav-link" %></span>
+      <span><%= link_to "Movies", movies_path, class: "nav-link" %></span>
+      <span><%= link_to "Events", events_path, class: "nav-link" %></span>
+      <span><%= link_to "Log-Out", sessions_logout_path, class: "nav-link" %></span>
     </nav>
 
     <!-- if not logged in, show this nav bar -->
     <nav>
-      <%= link_to "Movies", movies_path, class: "nav-link" %>
-      <%= link_to "Events", events_path, class: "nav-link" %>
-      <%= link_to "Log-In", login_path, class: "nav-link" %>
-      <%= link_to "Sign-Up", signup_path, class: "nav-link" %>
+      <span><%= link_to "Movies", movies_path, class: "nav-link" %></span>
+      <span><%= link_to "Events", events_path, class: "nav-link" %></span>
+      <span><%= link_to "Log-In", login_path, class: "nav-link" %></span>
+      <span><%= link_to "Sign-Up", signup_path, class: "nav-link" %></span>
     </nav>
 
     <p class="notice"><%= notice %></p>

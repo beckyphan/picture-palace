@@ -18,6 +18,18 @@
    text-align: center;
  }
 
+ nav {
+   margin: 0 auto;
+   padding: 10px;
+   width: 100%;
+   display: inline-flex;
+   justify-content: space-around;
+ }
+
+ .nav-link {
+
+ }
+
 .form {
   margin: 0 auto;
   border-radius: 25px;
