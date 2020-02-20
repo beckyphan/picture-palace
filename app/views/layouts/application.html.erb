@@ -17,7 +17,8 @@
       <span><%#= link_to "Home", users_path(current_user), class: "nav-link" %></span>
       <span><%= link_to "Movies", movies_path, class: "nav-link" %></span>
       <span><%= link_to "Events", events_path, class: "nav-link" %></span>
-      <span><%= link_to "Log-Out", sessions_logout_path, class: "nav-link" %></span>
+      <!-- logout link not working, proceeds to a GET request vs a DELETE request as written -->
+      <span><%= link_to "Log-Out", sessions_logout_path, method: "delete", class: "nav-link" %></span>
     </nav>
 
     <!-- if not logged in, show this nav bar -->

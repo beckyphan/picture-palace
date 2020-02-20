@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+
+  root 'movies#landing'
+
   get 'login', to: 'sessions#new'
   post 'sessions/login'
   delete 'sessions/logout'
-  root 'movies#landing'
 
   resources :events do
     resources :comments
