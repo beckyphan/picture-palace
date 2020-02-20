@@ -46,7 +46,7 @@
   background: white;
   padding: 20px;
   width: 200px;
-  height: 150px;
+  max-height: 150px;
  }
 
  .field_with_errors input {
