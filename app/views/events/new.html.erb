@@ -4,9 +4,6 @@
 
 <div class="form">
   <%= form_with model: @event, class: "events-form" do |f| %>
-  <br>
-  <br> Host: <%= current_user.name %></br>
-
   <br> <%= f.label :event_title, "Title" %>
         <%= f.text_field :event_title %> </br>
 

@@ -10,8 +10,9 @@
          <%= link_to event_path(e) do %>
           <div class="movie-card">
             <span class="movie-info">
-              <h2><%= e.event_title %></h2>
-              <p><%= e.date_time %> | <%= e.location %></p>
+              <h3><%= e.event_title %></h3>
+              <p><%= event_date(e) %> at <%= event_time(e) %><br>
+                <%= e.location %></p>
             </span>
           </div>
          <% end %>
@@ -23,12 +24,9 @@
 <br>
 
   <div class="column-2-right bubble-container">
-    <span><h3>Add a New Event</h3></span>
+    <span><h3>Add a New Event</h3></span><br>
       <%= form_with model: @event, class: "events-form" do |f| %>
-      <br>
-      <br> Host: <%= current_user.name %></br>
-
-      <br> <%= f.label :event_title, "Title" %>
+            <%= f.label :event_title, "Title" %>
             <%= f.text_field :event_title %> </br>
 
       <br> <%= f.label :date_time, "Date/Time" %>

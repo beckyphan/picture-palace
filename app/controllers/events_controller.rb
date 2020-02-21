@@ -2,10 +2,13 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    @event = Event.new
   end
 
   def create
-    @event = Event.new
+    binding.pry
+    @event = Event.new(event_params)
+    @event.host_id = current_user.id
 
     if @event.save
       flash.now[:notice] = "Event Added!"
@@ -31,4 +34,9 @@ class EventsController < ApplicationController
   def destroy
   end
 
+  private
+
+  def event_params
+    params.require(:event).permit(:event_title, :date_time, :location, :movie_id)
+  end
 end
