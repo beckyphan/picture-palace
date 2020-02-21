@@ -7,5 +7,9 @@ module EventsHelper
   def event_time(event)
     event.date_time.strftime("%I:%M %p")
   end
-  
+
+  def event_host(event)
+    event.host.name
+  end 
+
 end

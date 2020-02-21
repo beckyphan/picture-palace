@@ -1,3 +1,31 @@
 <div class='page-title'>
   <h1><%= @event.event_title %></h1>
+  <h3>Hosted by: <%= event_host(@event) %></h3>
+  <p><%= event_date(@event) %> at <%= event_time(@event) %><br>
+    <%= @event.location %></p>
+</div>
+
+<div class="two-column-body">
+  <div class="column-2-left bubble-container">
+    <div class='bubble-container'>
+      <h3>Attendees</h3>
+
+      <% if @event.attendees == nil %>
+        <h4> No Attendees Yet </h4>
+      <% else %>
+        <% @event.attendees.each do |guest| %>
+          <li><%= guest.name %></li>
+        <% end %>
+      <% end %>
+    <div>
+
+    Guestlist for Event
+
+    Attend Button
+  </div>
+
+  <div class="column-2-right bubble-container">
+    Add a Comment to Event -- only if you are attending
+  </div>
+
 </div>
