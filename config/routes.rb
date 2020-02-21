@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'movies#landing'
+root 'movies#landing'
 
   get 'login', to: 'sessions#new'
   post 'sessions/login'
@@ -16,6 +16,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create, :edit, :show, :update, :destroy]
   get 'signup', to: 'users#new'
+
+  get 'attendees_events/create'
+  post 'attendees_events/update'
+  delete 'attendees_events/destroy'
+
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
@@ -68,3 +73,6 @@ end
 #                                       PATCH  /users/:id(.:format)                                           users#update
 #                                       PUT    /users/:id(.:format)                                           users#update
 #                                       DELETE /users/:id(.:format)                                           users#destroy
+#               attendees_events_create GET    /attendees_events/create(.:format)                                                       attendees_events#create
+#               attendees_events_update POST   /attendees_events/update(.:format)                                                       attendees_events#update
+#              attendees_events_destroy DELETE /attendees_events/destroy(.:format)                                                      attendees_events#destroy

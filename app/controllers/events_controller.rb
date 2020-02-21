@@ -28,7 +28,13 @@ class EventsController < ApplicationController
   def show
     @event = Event.find_by_id(params[:id])
 
-    # @rsvp = false unless AttendeesEvent.attendees.include?(current_user)
+    @rsvp = false unless @event.attendees.include?(current_user)
+
+    if AttendeesEvent.find_by(event_id: params[:id], attendee_id: @current_user.id)
+      @attendees_event = AttendeesEvent.find_by(event_id: params[:id], attendee_id: @current_user.id)
+    else
+      @attendees_event = Attendees_Event.new
+    end 
   end
 
   def update

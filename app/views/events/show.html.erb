@@ -7,7 +7,6 @@
 
 <div class="two-column-body">
   <div class="column-2-left bubble-container">
-    <div class='bubble-container'>
       <h3>Attendees</h3>
 
       <% if @event.attendees == nil %>
@@ -17,11 +16,20 @@
           <li><%= guest.name %></li>
         <% end %>
       <% end %>
-    <div>
+      <br>
 
-    Guestlist for Event
-
-    Attend Button
+    <% if @rsvp == false %>
+      <% form_with @attendees_event do |f| %>
+        <% f.hidden_field status: true %>
+        <% f.submit "Attend" %>
+      <% end %>
+    <% else %>
+    <%# <% binding.pry %>
+      <%# <% form_with model: @attendees_event, method: :post do |f| %>
+        <%# <% f.hidden_field status: false %>
+        <%# <% f.submit "Not Attending" %>
+      <%# <% end %>
+    <% end %>
   </div>
 
   <div class="column-2-right bubble-container">
