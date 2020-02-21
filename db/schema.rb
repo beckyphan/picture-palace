@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_02_21_014936) do
   create_table "attendees_events", id: false, force: :cascade do |t|
     t.bigint "event_id", null: false
     t.bigint "attendee_id", null: false
-    t.boolean "status", default: true
+    t.boolean "status", default: false
     t.index ["attendee_id", "event_id"], name: "index_attendees_events_on_attendee_id_and_event_id"
     t.index ["event_id", "attendee_id"], name: "index_attendees_events_on_event_id_and_attendee_id"
   end
