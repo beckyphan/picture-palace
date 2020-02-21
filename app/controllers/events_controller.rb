@@ -27,6 +27,8 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by_id(params[:id])
+
+    # @rsvp = false unless AttendeesEvent.attendees.include?(current_user)
   end
 
   def update

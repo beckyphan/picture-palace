@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   has_many :hosted_events, class_name: "Event", foreign_key: 'host_id'
 
-  has_many :attendees_events
+  has_many :attendees_events, foreign_key: 'attendee_id', source: :event
   has_many :attended_events, through: :attendees_events, foreign_key: 'attendee_id', source: :event
 
   has_many :movies, through: :reviews
