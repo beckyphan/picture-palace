@@ -20,7 +20,6 @@ class SessionsController < ApplicationController
   end
 
   def logout
-    binding.pry
     reset_session
     redirect_to root_path
   end
