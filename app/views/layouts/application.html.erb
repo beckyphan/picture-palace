@@ -15,18 +15,16 @@
     <!-- if logged in, show this nav bar -->
     <nav>
       <span><%#= link_to "Home", users_path(current_user), class: "nav-link" %></span>
-      <span><%= link_to "Movies", movies_path, class: "nav-link" %></span>
-      <span><%= link_to "Events", events_path, class: "nav-link" %></span>
+      <span><%= link_to_unless_current "Movies", movies_path, class: "nav-link" %></span>
+      <span><%= link_to_unless_current "Events", events_path, class: "nav-link" %></span>
       <!-- logout link not working, proceeds to a GET request vs a DELETE request as written -->
       <span><%= link_to "Log-Out", sessions_logout_path, method: "delete", class: "nav-link" %></span>
     </nav>
 
     <!-- if not logged in, show this nav bar -->
     <nav>
-      <span><%= link_to "Movies", movies_path, class: "nav-link" %></span>
-      <span><%= link_to "Events", events_path, class: "nav-link" %></span>
-      <span><%= link_to "Log-In", login_path, class: "nav-link" %></span>
-      <span><%= link_to "Sign-Up", signup_path, class: "nav-link" %></span>
+      <span><%= link_to_unless_current "Log-In", login_path, class: "nav-link" %></span>
+      <span><%= link_to_unless_current "Sign-Up", signup_path, class: "nav-link" %></span>
     </nav>
 
     <p class="notice"><%= notice %></p>
