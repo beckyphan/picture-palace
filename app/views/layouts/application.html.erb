@@ -12,9 +12,9 @@
 
   <body>
 
-    <!-- if logged in, show this nav bar -->
+  <% if logged_in? %>
     <nav>
-      <span><%#= link_to "Home", users_path(current_user), class: "nav-link" %></span>
+      <span><% link_to_unless_current "Home", users_path(current_user), class: "nav-link" %></span>
       <span><%= link_to_unless_current "Movies", movies_path, class: "nav-link" %></span>
       <span><%= link_to_unless_current "Events", events_path, class: "nav-link" %></span>
       <span>
@@ -24,12 +24,12 @@
         <% end %>
       </span>
     </nav>
-
-    <!-- if not logged in, show this nav bar -->
+  <% else %>
     <nav>
       <span><%= link_to_unless_current "Log-In", login_path, class: "nav-link" %></span>
       <span><%= link_to_unless_current "Sign-Up", signup_path, class: "nav-link" %></span>
     </nav>
+  <% end %>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
