@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @events = Event.all
@@ -34,7 +35,7 @@ class EventsController < ApplicationController
       @attendees_event = AttendeesEvent.find_by(event_id: params[:id], attendee_id: @current_user.id)
     else
       @attendees_event = Attendees_Event.new
-    end 
+    end
   end
 
   def update
