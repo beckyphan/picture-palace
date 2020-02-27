@@ -34,7 +34,23 @@
   </div>
 
   <div class="column-2-right bubble-container">
-    Add a Comment to Event -- only if you are attending
+
+    <% @comments.each do |comment| %>
+      <p><%= comment.note %></p><br>
+      <p>by <%= comment.user %> at <%= comment.created_at %></p>
+    <% end %>
+
+    <br><br>
+
+    <% if @rsvp == true %>
+      <%= form_with model: @comment, url: new_event_comment_path(@event), class: "comments-form" do |f| %>
+        <center><%= f.text_area :note, size: "100x5" %>
+
+        <%= f.submit "Add Comment"%>
+        <br>
+        </center>
+      <% end %>
+    <% end %>
   </div>
 
 </div>
