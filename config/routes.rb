@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-root 'movies#landing'
+  root 'movies#landing'
 
   get 'login', to: 'sessions#new'
   post 'sessions/login', to: 'sessions#login'
