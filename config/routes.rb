@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 root 'movies#landing'
 
   get 'login', to: 'sessions#new'
-  post 'sessions/login'
-  delete 'sessions/logout'
+  post 'sessions/login', to 'sessions#login'
+  delete 'sessions/logout', to:'sessions#logout'
 
   resources :events do
     resources :comments
