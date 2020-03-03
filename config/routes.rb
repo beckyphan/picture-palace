@@ -17,9 +17,7 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :edit, :show, :update, :destroy]
   get 'signup', to: 'users#new'
 
-  get 'attendees_events/create'
-  post 'attendees_events/update'
-  delete 'attendees_events/destroy'
+  resources :attendees_event, only: [:create, :update, :destroy]
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
