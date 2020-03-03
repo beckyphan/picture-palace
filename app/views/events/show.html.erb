@@ -8,8 +8,7 @@
 <div class="two-column-body">
   <div class="column-2-left bubble-container">
       <h3>Attendees</h3>
-
-      <% if @event.attendees == nil %>
+      <% if @event.attendees.size < 1 %>
         <h4> No Attendees Yet </h4>
       <% else %>
         <% @event.attendees.each do |guest| %>
@@ -19,17 +18,15 @@
       <br>
 
     <% if @rsvp == false %>
-      <% form_with @attendees_event do |f| %>
-        <% f.hidden_field status: true %>
-        <% f.submit "Attend" %>
+      <%= form_with model: @attendees_event, url: attendees_event_index_path do |f| %>
+        <%= f.hidden_field status: true %>
+        <%= f.submit "Attend" %>
       <% end %>
     <% else %>
-    <%# form not workiner here, need to make sure it's sending info to the correct path %>
-    <%# <% binding.pry %>
-      <%# <% form_with model: @attendees_event, method: :post do |f| %>
-        <%# <% f.hidden_field status: false %>
-        <%# <% f.submit "Not Attending" %>
-      <%# <% end %>
+      <%= form_with model: @attendees_event do |f| %>
+        <%= f.hidden_field status: false %>
+        <%= f.submit "Not Attending" %>
+      <% end %>
     <% end %>
   </div>
 

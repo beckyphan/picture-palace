@@ -34,12 +34,12 @@ class EventsController < ApplicationController
     if AttendeesEvent.find_by(event_id: params[:id], attendee_id: @current_user.id)
       @attendees_event = AttendeesEvent.find_by(event_id: params[:id], attendee_id: @current_user.id)
     else
-      @attendees_event = Attendees_Event.new
+      @attendees_event = AttendeesEvent.new
     end
 
     @comments = Comment.all
     @comment = Comment.new
-    
+
   end
 
   def update
