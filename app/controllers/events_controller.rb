@@ -39,7 +39,6 @@ class EventsController < ApplicationController
 
     @comments = Comment.all
     @comment = Comment.new
-
   end
 
   def update
