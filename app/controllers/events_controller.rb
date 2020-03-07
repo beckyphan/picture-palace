@@ -31,10 +31,10 @@ class EventsController < ApplicationController
 
     @event.attendees.include?(current_user) ? @rsvp = true : @rsvp = false
 
-    if AttendeesEvent.find_by(event_id: params[:id], attendee_id: @current_user.id)
-      @attendees_event = AttendeesEvent.find_by(event_id: params[:id], attendee_id: @current_user.id)
+    if Guestlist.find_by(event_id: params[:id], attendee_id: @current_user.id)
+      @guest = Guestlist.find_by(event_id: params[:id], attendee_id: @current_user.id)
     else
-      @attendees_event = AttendeesEvent.new
+      @guest = Guestlist.new
     end
 
     @comments = Comment.all
