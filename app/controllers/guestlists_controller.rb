@@ -7,8 +7,9 @@ class GuestlistsController < ApplicationController
   end
 
   def update
+    binding.pry
     @attendees_event = Guestlist.find_by(event_id: params[:event_id], attendee_id: current_user.id)
-    @attendees_event.update(status: false)
+    @attendees_event.destroy
     flash.now[:notice] = "Your RSVP has been updated."
     redirect_to event_path(params[:event_id])
   end
