@@ -34,7 +34,17 @@
 
     <% @comments.each do |comment| %>
       <p><%= comment.note %><br>
-      by <%= comment.user.username %> on <%= comment.created_at %></p>
+      by <%= comment.user.username %> on <%= comment.created_at %>
+      <% if comment.user == current_user %>
+        <%# delete button not working %>
+        <%# link_to "X", event_comment_path(@event, comment), method: :delete %>
+        <%= form_tag event_comment_path(@event, comment), method: "delete" do %>
+          <%= submit_tag "X" %>
+        <% end %>
+      </p>
+  <% end %>
+
+
     <% end %>
 
     <br><br>

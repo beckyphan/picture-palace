@@ -25,6 +25,10 @@ class CommentsController < ApplicationController
     end
 
     def destroy
+      @comment = Comment.find_by(event_id: params[:event_id], user_id: current_user.id)
+      @comment.destroy
+      flash[:notice] = "Your comment was deleted."
+      redirect_to event_path(params[:event_id])
     end
 
 end

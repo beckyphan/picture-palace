@@ -7,6 +7,7 @@ class GuestlistsController < ApplicationController
   end
 
   def update
+    # move to destroy, edit event#show view accordingly
     @attendees_event = Guestlist.find_by(event_id: params[:event_id], attendee_id: current_user.id)
     @attendees_event.destroy
     flash[:notice] = "Your RSVP has been updated."
