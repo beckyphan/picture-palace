@@ -36,12 +36,11 @@ ActiveRecord::Schema.define(version: 2020_02_20_222008) do
     t.index ["movie_id"], name: "index_events_on_movie_id"
   end
 
-  create_table "guestlist", force: :cascade do |t|
+  create_table "guestlists", force: :cascade do |t|
     t.boolean "status", default: true
     t.bigint "event_id", null: false
     t.integer "attendee_id", null: false
-    t.index ["attendee_id", "event_id"], name: "index_guestlist_on_attendee_id_and_event_id"
-    t.index ["event_id"], name: "index_guestlist_on_event_id"
+    t.index ["event_id"], name: "index_guestlists_on_event_id"
   end
 
   create_table "movies", force: :cascade do |t|
@@ -77,7 +76,7 @@ ActiveRecord::Schema.define(version: 2020_02_20_222008) do
   add_foreign_key "comments", "events"
   add_foreign_key "comments", "users"
   add_foreign_key "events", "movies"
-  add_foreign_key "guestlist", "events"
+  add_foreign_key "guestlists", "events"
   add_foreign_key "reviews", "movies"
   add_foreign_key "reviews", "users"
 end
