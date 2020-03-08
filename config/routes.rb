@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
 
   resources :events do
-    resources :guestlist, only: [:create, :update, :destroy]
+    resources :guestlists, only: [:create, :update, :destroy]
   end
 
 

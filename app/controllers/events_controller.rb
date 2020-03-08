@@ -7,7 +7,6 @@ class EventsController < ApplicationController
   end
 
   def create
-    binding.pry
     @event = Event.new(event_params)
     @event.host_id = current_user.id
 

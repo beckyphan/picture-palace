@@ -18,7 +18,7 @@
       <br>
 
     <% if @rsvp == false %>
-      <%= form_with model: @guest, url: event_guestlist_index_path(params[:id]) do |f| %>
+      <%= form_with model: @guest, url: event_guestlists_path(params[:id]) do |f| %>
         <%= f.hidden_field status: true %>
         <%= f.submit "Attend" %>
       <% end %>
