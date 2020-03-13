@@ -48,6 +48,15 @@ class EventsController < ApplicationController
   end
 
   def update
+    @event = Event.find_by_id(params[:id])
+    @event.update(event_params)
+
+    if @event.save
+      redirect_to event_path(@event)
+    else
+      flash.now[:alert] = "Errors on page. Please correct:"
+      render 'edit'
+    end
   end
 
   def destroy
