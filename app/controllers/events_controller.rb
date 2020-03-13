@@ -43,7 +43,7 @@ class EventsController < ApplicationController
       @guest = Guestlist.new
     end
 
-    @comments = Comment.all
+    @comments = @event.comments
     @comment = Comment.new
   end
 
