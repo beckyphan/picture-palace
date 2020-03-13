@@ -40,8 +40,10 @@
 
     <% @reviews.each do |review| %>
       <p>
-        <%= review.rating %>
-        <%= review.review_title %><br>
+        <%= movie_rating_stars(review.rating).html_safe %>
+        <%= link_to(movie_review_path(review.id)) do %>
+          <%= review.review_title %>
+        <% end %>
         by <%= review.user.username %>
       </p>
     <% end %>

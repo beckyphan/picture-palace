@@ -8,4 +8,10 @@ module MoviesHelper
     return message
   end
 
+  def movie_rating_stars(num)
+    message = ""
+    num.times {message += "<img src='https://upload.wikimedia.org/wikipedia/commons/2/29/Gold_Star.svg' width='18px'>"}
+    return message
+  end
+
 end
