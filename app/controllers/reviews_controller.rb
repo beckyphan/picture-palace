@@ -28,9 +28,22 @@ class ReviewsController < ApplicationController
   end
 
   def update
+    @review = Review.find_by_id(params[:id])
+    @review.update(review_params)
+
+    if @review.save
+      redirect_to movie_path(@review.movie)
+    else
+      flash.now[:alert] = "Errors on page. Please correct:"
+      render 'edit'
+    end
   end
 
   def destroy
+    @review = Review.find_by_id(params[:id])
+    @movie = @review.movie
+    @review.destroy
+    redirect_to movie_path(@movie)
   end
 
   private

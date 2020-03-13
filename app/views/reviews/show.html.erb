@@ -10,4 +10,8 @@
 <div class="bubble-card">
   <%= @review.description %>
 </div>
+
+<%= link_to "Update my Review", edit_movie_review_path(@review) %><br>
+<%= link_to "Delete my Review", movie_review_path(@review), method: "delete" %>
+
 </center>
