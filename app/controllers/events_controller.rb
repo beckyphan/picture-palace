@@ -60,6 +60,11 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    @event = Event.find_by_id(params[:id])
+    @event.destroy
+    binding.pry
+    flash[:notice] = "You've deleted your event."
+    redirect_to events_path
   end
 
   private

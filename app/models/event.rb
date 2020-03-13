@@ -5,9 +5,9 @@ class Event < ApplicationRecord
   belongs_to :movie
   belongs_to :host, class_name: "User"
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
-  has_many :guestlists
+  has_many :guestlists, dependent: :destroy
   has_many :attendees, through: :guestlists, foreign_key: "attendee_id"
   # foreign_key is referencing what column to look for in the Guestlist table
 end
