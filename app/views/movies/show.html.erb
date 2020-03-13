@@ -38,8 +38,12 @@
     <% end %>
     <br>
 
-    Other Reviews - Title & Rating
-    Can click on it to see full review via movie_reviews_path
-  </div>
+    <% @reviews.each do |review| %>
+      <p>
+        <%= review.rating %>
+        <%= review.review_title %><br>
+        by <%= review.user.username %>
+      </p>
+    <% end %>
 
 </div>
