@@ -5,7 +5,7 @@ module ReviewsHelper
     @review.errors.full_messages.each do |m|
       message += "<li class='error'> #{m} </li>"
     end
-    return message
+    return message.html_safe
   end
 
 end
