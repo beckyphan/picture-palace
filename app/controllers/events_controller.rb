@@ -23,6 +23,13 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @event = Event.find_by_id(params[:id])
+    if @event.host == current_user
+      render 'edit'
+    else
+      flash[:alert] = "You are not authorized to edit this event!"
+      redirect_to event_path(@event)
+    end
   end
 
   def show
