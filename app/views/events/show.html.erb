@@ -2,7 +2,7 @@
   <h1><%= @event.event_title %></h1>
   <h3>Hosted by: <%= event_host(@event) %></h3>
   <% if current_user == @event.host %>
-    <%= link_to "Edit Event", edit_event_path(@event) %>
+    <%= link_to "Edit/Delete Event", edit_event_path(@event) %>
   <% end %>
   <p><%= event_date(@event) %> at <%= event_time(@event) %><br>
     <%= @event.location %></p>
