@@ -83,6 +83,11 @@
    border: 1px solid #DC143C;
  }
 
+ .errors-box {
+   margin: 0 35%;
+   width: 50%;
+ }
+
  a:link, a:visited {
   opacity: 0.5;
   text-decoration: none;
