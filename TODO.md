@@ -25,20 +25,21 @@ Confirm:
 
 
 ===
-Created all the models, resources, migrations
-Need to create the forms & views & update controllers for each model
-Ensure ability to create a user, login, logout, etc.
-Integrate third-party signup using OmniAuth
 
-[ ] if i am host, i can edit or delete my event
-  [ ] edit => event#edit page
-  [ ] delete => delete all attendees & comments on that event
-[ ] i can write a movie review
-  [ ] i can edit my review or delete my review
 [ ] User dashboard of user info & summary
   [ ] scope => most reviewed movie
   [ ] scope => most attended event
   [ ] my events
   [ ] my reviews
+
+[ ] scope = highest rated movie
+[ ] feature highest rated movie on movie#index
+
+[ ] scope = events with no attendees
+[ ] feature events with no attendees on event#index
+
+[ ] Sort events by date on event#index
+[ ] Add search bar to movies
+[ ] Add filter for events Page
 
 *** movies I want to watch?
