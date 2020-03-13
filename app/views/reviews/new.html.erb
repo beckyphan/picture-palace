@@ -5,7 +5,7 @@
 </div>
 
 <div class="form">
-  <%= form_with model: @review, url: movie_reviews_path(@movie, @review), class: "review-form" do |f| %>
+  <%= form_with model: @review, url: movie_reviews_path(@movie), class: "review-form" do |f| %>
     <%= f.label :review_title %>
     <%= f.text_field :review_title, size: "75" %><br>
     <%= f.label :rating %>
