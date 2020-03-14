@@ -20,7 +20,22 @@
        </div>
       <% end %>
     </div>
+    <div>
+      <%= form_with model: @event, class: "events-form" do |f| %>
+      <br> <%= f.label :event_title, "Title" %>
+            <%= f.text_field :event_title %> <br>
 
+      <br> <%= f.label :date_time, "Date/Time" %>
+            <%= f.datetime_field :date_time %> <br>
+
+      <br> <%= f.label :location %>
+            <%= f.text_field :location%> <br>
+
+            <%= f.hidden_field :movie_id, value: @movie.id %>
+      <br>
+      <br>  <%= f.submit "Create Event" %> <br>
+      <% end %>
+    </div>
   </div>
 
   <div class="column-2-right bubble-container">
