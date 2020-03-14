@@ -5,4 +5,10 @@
 <div class="form">
   <span>
   <%= render "event_form" %>
+  <center>
+  <%= form_tag event_path(@event), method: "delete" do %>
+    <br>
+    <%= submit_tag "Delete" %>
+  <% end %>
+  </center>
 </div>
