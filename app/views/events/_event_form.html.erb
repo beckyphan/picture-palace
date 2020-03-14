@@ -8,9 +8,13 @@
 
   <br> <%= f.label :location %>
         <%= f.text_field :location%> </br>
-
-  <br> <%= f.label :movie_id, "Movie" %>
-        <%= f.collection_select :movie_id, Movie.all, :id, :movie_title, prompt: true %>  </br>
+  <br>
+  <% if @movie %>
+    <%= f.hidden_field :movie_id, value: @movie.id %>
+  <% else %>
+      <%= f.label :movie_id, "Movie" %>
+      <%= f.collection_select :movie_id, Movie.all, :id, :movie_title, prompt: true %>  </br>
+  <% end %>
   <br>
   <br>  <%= f.submit %> </br>
   <% end %>
