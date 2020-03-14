@@ -17,6 +17,11 @@
  body {
    background-color: #f8f8ff;
    font-family: 'Roboto', sans-serif;
+   background-image: url('twinsfisch-16Tu8S18pu4-unsplash.jpg');
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-position: center;
+   background-size: cover;
  }
 
  h1 {
