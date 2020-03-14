@@ -3,10 +3,10 @@ class Guestlist < ApplicationRecord
   belongs_to :attendee, class_name: "User"
 
   scope :event_guest_counts, -> { self.group(:event_id).count }
-  scope :order_by_popularity, -> { self.group(:event_id).order("count(*)").count }
+  scope :order_events_by_popularity, -> { self.group(:event_id).order("count(*)").count }
 
   def self.most_popular_event
-    event_id = self.order_by_popularity.first.first
+    event_id = self.order_events_by_popularity.first.first
     @event = Event.find_by(id: event_id)
   end
 
