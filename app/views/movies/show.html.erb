@@ -41,9 +41,9 @@
   <div class="column-2-right bubble-container">
     <%= form_with model: @review, url: movie_reviews_path(@movie, @review), class: "review-form" do |f| %>
       <%= f.label :review_title %>
-      <%= f.text_field :review_title, size: "75" %><br>
+      <%= f.text_field :review_title, size: "75" %><br><br>
       <%= f.label :rating %>
-      <%= f.select :rating, [1, 2, 3, 4, 5] %><br>
+      <%= f.select :rating, [1, 2, 3, 4, 5] %><br><br>
       <%= f.text_area :description, size: "100x5" %>
       <center>
       <%= f.submit "Add My Review"%>
@@ -51,7 +51,9 @@
     <% end %>
     <br>
     <br>
-    <%= link_to "See all - Full Reviews", movie_reviews_path(@movie) %>
+    <% if @reviews.size > 0 %>
+      <%= button_to "See all - Full Reviews", movie_reviews_path(@movie), method: 'get' %>
+    <% end %>
     <br>
     <br>
 
