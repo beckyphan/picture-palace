@@ -10,4 +10,8 @@ class Event < ApplicationRecord
   has_many :guestlists, dependent: :destroy
   has_many :attendees, through: :guestlists, foreign_key: "attendee_id"
   # foreign_key is referencing what column to look for in the Guestlist table
+
+  def self.most_popular
+    Guestlist.most_popular_event
+  end
 end
