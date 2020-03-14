@@ -11,6 +11,9 @@ class Event < ApplicationRecord
   has_many :attendees, through: :guestlists, foreign_key: "attendee_id"
   # foreign_key is referencing what column to look for in the Guestlist table
 
+  scope :host, -> (host_object) { where('host_id = ?', host_object.id)}
+  scope :upcoming_events, -> { where('date_time > ?', DateTime.now) }
+
   def self.most_popular
     Guestlist.most_popular_event
   end
