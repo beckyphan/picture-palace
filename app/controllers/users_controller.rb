@@ -27,6 +27,8 @@ class UsersController < ApplicationController
   def show
     @hosted_events = Event.host(current_user)
     @attending_events = Guestlist.attendee(current_user)
+
+    @reviewed_movies = current_user.movies
   end
 
   def destroy

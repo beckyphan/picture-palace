@@ -4,17 +4,38 @@
 
 <div class="two-column-body">
   <div class="column-2-left bubble-container">
-    Movies I want to Watch
+    <h2>My Reviewed Movies</h2>
+    <% @reviewed_movies.each do |m| %>
+     <div class="bubble-card">
+       <%= link_to movie_review_path(m) do %>
+        <div class="movie-card">
+          <img src='<%= m.image_url %>'>
+        </div>
+       <% end %>
+     </div>
+    <% end %>
   </div>
 
   <div class="column-2-right">
     <div class="bubble-container">
-      Events I am Hosting
+      <h2>Events</h2>
+      <h4>Hosting:</h4>
+      <% @hosted_events.each do |e| %>
+         <%= link_to event_path(e) do %>
+            <span class="movie-info">
+              <p><%= e.event_title %> on <%= event_date(e) %>, <%= event_time(e) %> at <%= e.location %></p>
+            </span>
+         <% end %>
+      <% end %>
+      <h4>Attending:</h4>
+      <% @attending_events.each do |listing| %>
+        <% e = Event.find_by(id: listing.event_id)%>
+         <%= link_to event_path(e) do %>
+            <span class="movie-info">
+              <p><%= e.event_title %> on <%= event_date(e) %>, <%= event_time(e) %> at <%= e.location %></p>
+            </span>
+         <% end %>
+      <% end %>
     </div>
-
-    <div class="bubble-container">
-      Event I am Attending
-    </div>
-  </div>
 
 </div>
