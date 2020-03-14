@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
-  validates_presence_of :name, :username, :email, :password
+  validates_presence_of :name, :username, :email
+  # validates_presence_of :password, if: :omniauth_false, on: :create
   validates_uniqueness_of :username, :email
 
   has_many :reviews
@@ -14,4 +15,8 @@ class User < ApplicationRecord
 
   has_many :movies, through: :reviews
   has_many :comments, through: :events
+
+  def omniauth_false
+    self.omniauth == false
+  end
 end
