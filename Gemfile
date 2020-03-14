@@ -27,6 +27,9 @@ gem 'dotenv-rails'
 # User Google OmniAuth
 gem 'omniauth-google-oauth2'
 
+# Allows Seed Dump
+gem 'seed_dump'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
