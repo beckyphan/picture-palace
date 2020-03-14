@@ -3,7 +3,7 @@
   <%= movie_rating_stars(@review.rating) %>
   <br>
   <h1> <%= @review.review_title %> </h1>
-  <h3> <%= @review.movie.movie_title %> Review by <%= @review.user.username %> </h3>
+  <h3> <%= link_to @review.movie.movie_title, movie_path(@review.movie) %> Review by <%= @review.user.username %> </h3>
 </div>
 
 <center>
