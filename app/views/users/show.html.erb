@@ -4,7 +4,7 @@
 
 <div class="two-column-body">
   <div class="column-2-left bubble-container">
-    <h2>My Reviewed Movies</h2>
+    <h2>My Reviewed Movies (<%= @reviewed_movies.size %>)</h2>
     <% @reviewed_movies.each do |m| %>
      <div class="bubble-card">
        <%= link_to movie_review_path(m) do %>
@@ -19,23 +19,29 @@
   <div class="column-2-right">
     <div class="bubble-container">
       <h2>Events</h2>
-      <h4>Hosting:</h4>
+      <h4>Hosting (<%= @hosted_events.size %>):</h4>
+      <ul>
       <% @hosted_events.each do |e| %>
-         <%= link_to event_path(e) do %>
+         <li><%= link_to event_path(e) do %>
             <span class="movie-info">
               <p><%= e.event_title %> on <%= event_date(e) %>, <%= event_time(e) %> at <%= e.location %></p>
             </span>
          <% end %>
+         </li>
       <% end %>
-      <h4>Attending:</h4>
+      </ul>
+      <h4>Attending (<%= @attending_events.size %>):</h4>
+      <ul>
       <% @attending_events.each do |listing| %>
         <% e = Event.find_by(id: listing.event_id)%>
-         <%= link_to event_path(e) do %>
+         <li><%= link_to event_path(e) do %>
             <span class="movie-info">
               <p><%= e.event_title %> on <%= event_date(e) %>, <%= event_time(e) %> at <%= e.location %></p>
             </span>
          <% end %>
+         </li>
       <% end %>
+      </ul>
     </div>
 
 </div>
