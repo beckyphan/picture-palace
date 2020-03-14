@@ -40,6 +40,15 @@ class MoviesController < ApplicationController
   end
 
   def update
+    @movie = Movie.find_by_id(params[:id])
+
+    if @movie.update(movie_params)
+      flash[:notice] = "Movie Updated!"
+      redirect_to movie_path(@movie)
+    else
+      flash.now[:alert] = "Errors on page. Please correct:"
+      render 'edit'
+    end
   end
 
   def destroy

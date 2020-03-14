@@ -5,7 +5,7 @@
 <div class="body-container">
   <div class="banner-form">
     <span><h3>Add a New Movie</h3></span>
-      <%= render "movie_form" %>
+      <%= render "movie_form", locals: { movie: @movie} %>
   </div>
 
 <br>
