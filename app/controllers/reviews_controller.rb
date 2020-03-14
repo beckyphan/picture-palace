@@ -3,6 +3,9 @@ class ReviewsController < ApplicationController
 
   def index
     @movie = Movie.find_by(id: params[:movie_id])
+    if @movie == nil
+      redirect_to movies_path
+    end
     @reviews = Review.where(movie_id: params[:movie_id])
     @review = Review.new
   end

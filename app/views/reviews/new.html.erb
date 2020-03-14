@@ -7,14 +7,7 @@
 </div>
 
 <div class="form">
-  <%= form_with model: @review, url: movie_reviews_path(@movie), class: "review-form" do |f| %>
-    <%= f.label :review_title %>
-    <%= f.text_field :review_title, size: "50%" %><br>
-    <%= f.label :rating %>
-    <%= f.select :rating, [1, 2, 3, 4, 5] %><br>
-    <%= f.text_area :description, size: "70%x10%" %>
-    <center>
-    <%= f.submit "Add My Review"%>
-    </center>
+  <%= form_with model: @review, url: new_movie_review_path(@review.movie), class: "review-form" do |form| %>
+    <%= render partial: "movie_review_form", locals: { f: form }  %>
   <% end %>
 </div>
