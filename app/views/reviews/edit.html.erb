@@ -1,4 +1,6 @@
-<%= object_errors(@review) %>
+<div class="errors-box">
+  <%= object_errors(@review) %>
+</div>
 <br>
 <div class='page-title'>
   <h1>Edit Movie Review</h1>
@@ -8,4 +10,10 @@
   <%= form_with model: @review, url: movie_review_path(@review.movie, @review), class: "review-form" do |form| %>
     <%= render partial: "movie_review_form", locals: { f: form } %>
   <% end %>
+  <center>
+  <%= form_tag movie_review_path(@review.movie, @review), method: "delete" do %>
+    <br>
+    <%= submit_tag "Delete" %>
+  <% end %>
+  </center>
 </div>

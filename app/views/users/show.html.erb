@@ -7,7 +7,8 @@
     <h2>My Reviewed Movies (<%= @reviewed_movies.size %>)</h2>
     <% @reviewed_movies.each do |m| %>
      <div class="bubble-card">
-       <%= link_to movie_review_path(m) do %>
+       <% @movie_review = Review.find_by(movie_id: m, user_id: current_user.id) %>
+       <%= link_to movie_review_path(m, @movie_review) do %>
         <div class="movie-card">
           <img src='<%= m.image_url %>'>
         </div>
