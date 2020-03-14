@@ -7,7 +7,6 @@ class EventsController < ApplicationController
   end
 
   def create
-    binding.pry
     @event = Event.new(event_params)
     @event.host_id = current_user.id
 
@@ -24,6 +23,13 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @event = Event.find_by_id(params[:id])
+    if @event.host == current_user
+      render 'edit'
+    else
+      flash[:alert] = "You are not authorized to edit this event!"
+      redirect_to event_path(@event)
+    end
   end
 
   def show
@@ -31,21 +37,34 @@ class EventsController < ApplicationController
 
     @event.attendees.include?(current_user) ? @rsvp = true : @rsvp = false
 
-    if AttendeesEvent.find_by(event_id: params[:id], attendee_id: @current_user.id)
-      @attendees_event = AttendeesEvent.find_by(event_id: params[:id], attendee_id: @current_user.id)
+    if Guestlist.find_by(event_id: params[:id], attendee_id: @current_user.id)
+      @guest = Guestlist.find_by(event_id: params[:id], attendee_id: @current_user.id)
     else
-      @attendees_event = Attendees_Event.new
+      @guest = Guestlist.new
     end
 
-    @comments = Comment.all
+    @comments = @event.comments
     @comment = Comment.new
-    
   end
 
   def update
+    @event = Event.find_by_id(params[:id])
+    @event.update(event_params)
+
+    if @event.save
+      redirect_to event_path(@event)
+    else
+      flash.now[:alert] = "Errors on page. Please correct:"
+      render 'edit'
+    end
   end
 
   def destroy
+    @event = Event.find_by_id(params[:id])
+    @event.destroy
+    binding.pry
+    flash[:notice] = "You've deleted your event."
+    redirect_to events_path
   end
 
   private

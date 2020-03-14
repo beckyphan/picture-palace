@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:new, :create]
 
   def new
     @user = User.new
@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
     if @user.save
       flash.now[:notice] = "Welcome #{@user.name}!"
+      session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
       flash.now[:alert] = "Errors on page. Please correct:"
@@ -24,7 +25,10 @@ class UsersController < ApplicationController
   end
 
   def show
+    @hosted_events = Event.host(current_user)
+    @attending_events = Guestlist.attendee(current_user)
 
+    @reviewed_movies = current_user.movies
   end
 
   def destroy

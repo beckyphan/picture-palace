@@ -5,11 +5,49 @@
 
 <div class="two-column-body">
   <div class="column-2-left bubble-container">
-    Events on This Movie
+    <div class="gallery-listing">
+      <% @movie_events.each do |e| %>
+       <div class="bubble-card">
+         <%= link_to event_path(e) do %>
+          <div class="movie-card">
+            <span class="movie-info">
+              <h3><%= e.event_title %></h3>
+              <p><%= event_date(e) %> at <%= event_time(e) %><br>
+                <%= e.location %></p>
+            </span>
+          </div>
+         <% end %>
+       </div>
+      <% end %>
+    </div>
+
   </div>
 
   <div class="column-2-right bubble-container">
-    Reviews on this Movie
-  </div>
+    <%= form_with model: @review, url: movie_reviews_path(@movie, @review), class: "review-form" do |f| %>
+      <%= f.label :review_title %>
+      <%= f.text_field :review_title, size: "75" %><br>
+      <%= f.label :rating %>
+      <%= f.select :rating, [1, 2, 3, 4, 5] %><br>
+      <%= f.text_area :description, size: "100x5" %>
+      <center>
+      <%= f.submit "Add My Review"%>
+      </center>
+    <% end %>
+    <br>
+    <br>
+    <%= link_to "See all - Full Reviews", movie_reviews_path(@movie) %>
+    <br>
+    <br>
+
+    <% @reviews.each do |review| %>
+      <p>
+        <%= movie_rating_stars(review.rating).html_safe %>
+        <%= link_to(movie_review_path(review.id)) do %>
+          <%= review.review_title %>
+        <% end %>
+        by <%= review.user.username %>
+      </p>
+    <% end %>
 
 </div>

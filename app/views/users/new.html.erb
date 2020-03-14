@@ -14,8 +14,11 @@
     <%= f.label :email %>
     <%= f.email_field :email %>  <br>
 
-    <%= f.label :passsword %>
-    <%= f.password_field :password %> <br> <br>
+    <%= f.label :password %>
+    <%= f.password_field :password %> <br>
+
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %> <br> <br>
 
     <%= f.submit "Sign Up"%>
   <% end %>

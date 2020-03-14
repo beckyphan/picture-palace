@@ -1,0 +1,23 @@
+<div class='page-title'>
+  <br>
+  <%= movie_rating_stars(@review.rating) %>
+  <br>
+  <h1> <%= @review.review_title %> </h1>
+  <h3> <%= link_to @review.movie.movie_title, movie_path(@review.movie) %> Review by <%= @review.user.username %> </h3>
+</div>
+
+<center>
+<div class="bubble-card">
+  <%= @review.description %>
+</div>
+
+<% if @review.user == current_user %>
+  <br><br>
+  <%= button_to "Update my Review", edit_movie_review_path(@review), :method => :get %>
+  <br>
+  <%= form_tag movie_review_path(@review.movie, @review), method: "delete" do %>
+    <%= submit_tag "Delete my Review" %>
+  <% end %>
+<% end %>
+
+</center>

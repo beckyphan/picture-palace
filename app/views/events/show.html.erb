@@ -1,6 +1,9 @@
 <div class='page-title'>
   <h1><%= @event.event_title %></h1>
   <h3>Hosted by: <%= event_host(@event) %></h3>
+  <% if current_user == @event.host %>
+    <%= link_to "Edit/Delete Event", edit_event_path(@event) %>
+  <% end %>
   <p><%= event_date(@event) %> at <%= event_time(@event) %><br>
     <%= @event.location %></p>
 </div>
@@ -8,8 +11,7 @@
 <div class="two-column-body">
   <div class="column-2-left bubble-container">
       <h3>Attendees</h3>
-
-      <% if @event.attendees == nil %>
+      <% if @event.attendees.size < 1 %>
         <h4> No Attendees Yet </h4>
       <% else %>
         <% @event.attendees.each do |guest| %>
@@ -18,31 +20,42 @@
       <% end %>
       <br>
 
-    <% if @rsvp == false %>
-      <% form_with @attendees_event do |f| %>
-        <% f.hidden_field status: true %>
-        <% f.submit "Attend" %>
+    <% if current_user != @event.host %>
+      <% if @rsvp == false %>
+        <%= form_with model: @guest, url: event_guestlists_path(params[:id]) do |f| %>
+          <%= f.hidden_field status: true %>
+          <%= f.submit "Attend" %>
+        <% end %>
+      <% else %>
+        <%= form_with model: @guest, url: event_guestlist_path(params[:id]) do |f| %>
+          <%= f.hidden_field status: false %>
+          <%= f.submit "Not Attending" %>
+        <% end %>
       <% end %>
-    <% else %>
-    <%# form not workiner here, need to make sure it's sending info to the correct path %>
-    <%# <% binding.pry %>
-      <%# <% form_with model: @attendees_event, method: :post do |f| %>
-        <%# <% f.hidden_field status: false %>
-        <%# <% f.submit "Not Attending" %>
-      <%# <% end %>
     <% end %>
   </div>
 
   <div class="column-2-right bubble-container">
 
     <% @comments.each do |comment| %>
-      <p><%= comment.note %><br>
-      by <%= comment.user.username %> on <%= comment.created_at %></p>
+      <p><%= comment.note %></p>
+      <h6>by <%= comment.user.username %> on <%= comment.created_at %></h6>
+
+        <% if comment.user == current_user %>
+          <%# delete button not working %>
+          <%# link_to "X", event_comment_path(@event, comment), method: :delete %>
+          <%= form_tag event_comment_path(@event, comment), method: "delete" do %>
+            <%= submit_tag "X" %>
+        <% end %>
+
+    <% end %>
+
+
     <% end %>
 
     <br><br>
 
-    <% if @rsvp == true %>
+    <% if @rsvp == true || current_user == @event.host %>
       <%= form_with model: @comment, url: event_comments_path(@event), class: "comments-form" do |f| %>
         <center><%= f.text_area :note, size: "100x5" %>
 

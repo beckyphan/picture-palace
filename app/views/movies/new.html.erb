@@ -1,4 +1,7 @@
-<%= new_movie_errors(@movie).html_safe %>
+<div class="errors-box">
+    <%= object_errors(@movie) %>
+</div>
+<br>
 <br>
 <div class='page-title'>
   <h1>Add New Movie</h1>

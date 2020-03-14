@@ -10,18 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_21_014936) do
+ActiveRecord::Schema.define(version: 2020_03_14_074559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "attendees_events", id: false, force: :cascade do |t|
-    t.bigint "event_id", null: false
-    t.bigint "attendee_id", null: false
-    t.boolean "status", default: false
-    t.index ["attendee_id", "event_id"], name: "index_attendees_events_on_attendee_id_and_event_id"
-    t.index ["event_id", "attendee_id"], name: "index_attendees_events_on_event_id_and_attendee_id"
-  end
 
   create_table "comments", force: :cascade do |t|
     t.text "note"
@@ -42,6 +34,13 @@ ActiveRecord::Schema.define(version: 2020_02_21_014936) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "location"
     t.index ["movie_id"], name: "index_events_on_movie_id"
+  end
+
+  create_table "guestlists", force: :cascade do |t|
+    t.boolean "status", default: true
+    t.bigint "event_id", null: false
+    t.integer "attendee_id", null: false
+    t.index ["event_id"], name: "index_guestlists_on_event_id"
   end
 
   create_table "movies", force: :cascade do |t|
@@ -72,11 +71,13 @@ ActiveRecord::Schema.define(version: 2020_02_21_014936) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "omniauth", default: false
   end
 
   add_foreign_key "comments", "events"
   add_foreign_key "comments", "users"
   add_foreign_key "events", "movies"
+  add_foreign_key "guestlists", "events"
   add_foreign_key "reviews", "movies"
   add_foreign_key "reviews", "users"
 end

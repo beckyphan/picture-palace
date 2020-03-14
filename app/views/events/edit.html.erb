@@ -1,11 +1,9 @@
-<div class="errors-box">
-  <%= object_errors(@event) %>
-</div>
 <div class='page-title'>
-  <h1>Add a New Event</h1>
+  <h1>Edit <%= @event.event_title %></h1>
 </div>
 
 <div class="form">
+  <span>
   <%= form_with model: @event, class: "events-form" do |f| %>
   <br> <%= f.label :event_title, "Title" %>
         <%= f.text_field :event_title %> </br>
@@ -19,6 +17,10 @@
   <br> <%= f.label :movie_id, "Movie" %>
         <%= f.collection_select :movie_id, Movie.all, :id, :movie_title, prompt: true %>  </br>
   <br>
-  <br>  <%= f.submit "Create Event" %> </br>
+  <br>  <%= f.submit "Update Event" %>
   <% end %>
+
+    <%= form_with model: @event, method: 'delete', class: "events-form" do |f| %>
+    <br>  <%= f.submit "Delete my Event" %> </br>
+    <% end %>
 </div>
