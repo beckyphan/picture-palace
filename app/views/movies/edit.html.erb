@@ -8,20 +8,5 @@
 </div>
 
   <div class="form">
-          <%= form_with model: @movie, class: "movies-form" do |f| %>
-            <br>
-            <%= f.label :movie_title, "Title" %><br>
-                  <%= f.text_field :movie_title %> <br>
-            <br>
-            <%= f.label :genre, "Main Genre" %><br>
-            <%= f.text_field :genre %> <br>
-            <br>
-            <%= f.label :year %><br>
-            <%= f.text_field :year %>  <br>
-            <br>
-            <%= f.label :image_url, "Image URL" %><br>
-            <%= f.text_field :image_url %> <br>
-            <br>
-            <%= f.submit %> <br>
-          <% end %>
+    <%= render "movie_form" %>
   </div>
