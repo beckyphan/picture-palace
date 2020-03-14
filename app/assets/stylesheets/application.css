@@ -123,3 +123,12 @@ a:hover {
 .column-2-left, .column-2-right {
   width: 100%;
 }
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: black;
+  text-align: center;
+  padding: 50px;
+}
