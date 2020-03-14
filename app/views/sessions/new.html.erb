@@ -1,3 +1,5 @@
+<!-- <script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id" content="918235572948-869jlsrs708kljrahjltvdl9s9ead5so.apps.googleusercontent.com"> -->
 <h1>Login</h1>
 
 <div class="form">
@@ -11,4 +13,10 @@
 
     <%= f.submit "Login"%>
   <% end %>
+  <br>
+  <center>
+  <br>
+    <h4><%= link_to "Log In with Google", auth_google_oauth2_path %></h4>
+    <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
+  </center>
 </div>
