@@ -12,7 +12,9 @@
 </div>
 
 <% if @review.user == current_user %>
-  <%= link_to "Update my Review", edit_movie_review_path(@review) %><br>
+  <br><br>
+  <%= button_to "Update my Review", edit_movie_review_path(@review), :method => :get %>
+  <br>
   <%= form_tag movie_review_path(@review.movie, @review), method: "delete" do %>
     <%= submit_tag "Delete my Review" %>
   <% end %>
