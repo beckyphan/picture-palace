@@ -124,6 +124,22 @@ a:hover {
   width: 100%;
 }
 
+.button {
+  background-color: #e7e7e7;
+  color: black;
+  border: none;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.button:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
 .footer {
   position: fixed;
   bottom: 0;
