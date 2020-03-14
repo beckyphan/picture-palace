@@ -4,23 +4,5 @@
 
 <div class="form">
   <span>
-  <%= form_with model: @event, class: "events-form" do |f| %>
-  <br> <%= f.label :event_title, "Title" %>
-        <%= f.text_field :event_title %> </br>
-
-  <br> <%= f.label :date_time, "Date/Time" %>
-        <%= f.datetime_field :date_time %> </br>
-
-  <br> <%= f.label :location %>
-        <%= f.text_field :location%> </br>
-
-  <br> <%= f.label :movie_id, "Movie" %>
-        <%= f.collection_select :movie_id, Movie.all, :id, :movie_title, prompt: true %>  </br>
-  <br>
-  <br>  <%= f.submit "Update Event" %>
-  <% end %>
-
-    <%= form_with model: @event, method: 'delete', class: "events-form" do |f| %>
-    <br>  <%= f.submit "Delete my Event" %> </br>
-    <% end %>
+  <%= render "event_form" %>
 </div>

@@ -24,21 +24,7 @@
 <br>
 
   <div class="column-2-right bubble-container">
-    <span><h3>Add a New Event</h3></span><br>
-      <%= form_with model: @event, class: "events-form" do |f| %>
-            <%= f.label :event_title, "Title" %>
-            <%= f.text_field :event_title %> </br>
-
-      <br> <%= f.label :date_time, "Date/Time" %>
-            <%= f.datetime_field :date_time %> </br>
-
-      <br> <%= f.label :location %>
-            <%= f.text_field :location%> </br>
-
-      <br> <%= f.label :movie_id, "Movie" %>
-            <%= f.collection_select :movie_id, Movie.all, :id, :movie_title, prompt: true %>  </br>
-      <br>
-      <br>  <%= f.submit "Create Event" %> </br>
-    <% end %>
+    <span><h3>Add a New Event</h3></span>
+      <%= render "event_form" %>
   </div>
 </div>
