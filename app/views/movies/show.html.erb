@@ -43,7 +43,7 @@
     <% @reviews.each do |review| %>
       <p>
         <%= movie_rating_stars(review.rating).html_safe %>
-        <%= link_to(movie_review_path(review.id)) do %>
+        <%= link_to movie_review_path(review.movie, review) do %>
           <%= review.review_title %>
         <% end %>
         by <%= review.user.username %>

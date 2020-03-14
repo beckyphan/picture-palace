@@ -19,4 +19,6 @@ class User < ApplicationRecord
   def omniauth_false
     self.omniauth == false
   end
+
+  # clean up unnecessary code
 end

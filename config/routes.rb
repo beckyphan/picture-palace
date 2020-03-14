@@ -22,7 +22,6 @@ Rails.application.routes.draw do
   end
 
   get '/auth/google_oauth2', to: 'sessions#new'
-  # get '/oauth', to:'session#oauth_login'
   get '/auth/google_oauth2/callback', to:'sessions#oauth_login'
 
 
