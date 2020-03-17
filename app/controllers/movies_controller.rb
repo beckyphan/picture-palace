@@ -36,7 +36,7 @@ class MoviesController < ApplicationController
     @event = Event.new
 
     @review = Review.new
-    @reviews = Review.for_movie(@movie)
+    @reviews = @movie.reviews
   end
 
   def update
