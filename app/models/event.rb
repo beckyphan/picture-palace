@@ -18,4 +18,8 @@ class Event < ApplicationRecord
   def self.most_popular
     Guestlist.most_popular_event
   end
+
+  def upcoming?
+    self.date_time >= DateTime.now ? true : false
+  end
 end

@@ -20,7 +20,7 @@
       <% end %>
       <br>
 
-    <% if current_user != @event.host %>
+    <% if current_user != @event.host && @event.upcoming? %>
       <% if @rsvp == false %>
         <%= form_with model: @guest, url: event_guestlists_path(params[:id]) do |f| %>
           <%= f.hidden_field status: true %>
