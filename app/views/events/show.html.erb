@@ -27,8 +27,7 @@
           <%= f.submit "Attend" %>
         <% end %>
       <% else %>
-        <%= form_with model: @guest, url: event_guestlist_path(params[:id]) do |f| %>
-          <%= f.hidden_field status: false %>
+        <%= form_with model: @guest, url: event_guestlist_path(params[:id]), method: 'delete' do |f| %>
           <%= f.submit "Not Attending" %>
         <% end %>
       <% end %>

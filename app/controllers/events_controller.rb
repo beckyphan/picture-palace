@@ -30,6 +30,7 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find_by_id(params[:id])
+
     if @event.host == current_user
       render 'edit'
     else
@@ -40,6 +41,8 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by_id(params[:id])
+    @comments = @event.comments
+    @comment = Comment.new
 
     @event.attendees.include?(current_user) ? @rsvp = true : @rsvp = false
 
@@ -48,9 +51,6 @@ class EventsController < ApplicationController
     else
       @guest = Guestlist.new
     end
-
-    @comments = @event.comments
-    @comment = Comment.new
   end
 
   def update

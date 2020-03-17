@@ -6,15 +6,10 @@ class GuestlistsController < ApplicationController
     redirect_to event_path(params[:event_id])
   end
 
-  def update
-    # move to destroy, edit event#show view accordingly
-    # edit guestlist schema/migration accordingly
+  def destroy
     @attendees_event = Guestlist.find_by(event_id: params[:event_id], attendee_id: current_user.id)
     @attendees_event.destroy
     flash[:notice] = "Your RSVP has been updated."
     redirect_to event_path(params[:event_id])
-  end
-
-  def destroy
   end
 end
