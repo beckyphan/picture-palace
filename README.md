@@ -1,24 +1,39 @@
-# README
+# Picture Palace
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+picture palace. n. (Film) Brit an old-fashioned name for cinema
+this rails application creates a social network for movie-goers to share movie reviews and create events around movie watching.
 
-Things you may want to cover:
+## Usage
 
-* Ruby version
+This application is best utilized with more than one user. Each user is able to add movies and create events. Users can also write reviews for movies.
 
-* System dependencies
+Events can be created by any user revolving a particular movie, and other users may attend the event. If a user is attending the event, they may write comments on the event page.
 
-* Configuration
+A user's home page will contain a list of movies they have reviewed, as well as events they are hosting and attending.
 
-* Database creation
+## Getting Started
 
-* Database initialization
+You can clone a copy of this repository to your local computer.
 
-* How to run the test suite
+### Prerequisites
 
-* Services (job queues, cache servers, search engines, etc.)
+You should have your own Google Client ID and Google Client Secret to use for this application if you wish to utilize the Oauth2 sign-up/log-in process.
+Otherwise, be sure to comment out the code for those log-in in the Login and Sign-up views.
 
-* Deployment instructions
+This project utilizes PostGresql as its database.
 
-* ...
+### Installing
+
+After cloning, make sure to run ```bundle install``` to install all the necessary gems
+Create your database with ```rake db:create ``` and run the migrations ```rake db:migrate```
+If you wish to have some seed movies to work with, run ```rake db:seed```
+
+Important: To ensure Oauth2 sign-up/log-in with Google is working properly, please ensure you create a ```.env``` file at the root of your project directory AND create a ```'DEFAULT_PASSWORD'``` for users logging in via Oauth2.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+This is a rails portfolio project for the Flatiron School.
