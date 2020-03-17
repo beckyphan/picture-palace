@@ -11,7 +11,10 @@ Specs:
       Review belongs_to user, Review belongs_to movie
       Event belongs_to user, Event belongs_to movie  
 - [x] Include at least two has_many through relationships (x has_many y through z)
-      User has_many movies, through reviews (i.e. reviewed movies or watched movies)
+      User has_many movies, through reviews
+      or conversely
+      Movie has_many users/viewers, through reviews
+      (i.e. reviewed movies or watched movies)
 - [x] Include at least one many-to-many relationship (x has_many y through z, y has_many x through z)
       User has_many events, through guestlists; Event has_many users, through guestlists
 - [x] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity)
