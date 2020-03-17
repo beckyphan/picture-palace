@@ -51,8 +51,9 @@ class MoviesController < ApplicationController
     end
   end
 
-  def destroy
-  end
+  # should not be able to delete a movie, can always edit
+  # def destroy
+  # end
 
   private
 
