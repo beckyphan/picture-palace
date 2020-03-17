@@ -47,6 +47,7 @@ Specs:
 
 Confirm:
 - [ ] The application is pretty DRY
+      Code relatively DRY, with exception of styling that may be repetitive; partially corrected through use of rendering partials
 - [ ] Limited logic in controllers
       Logic limited to display messages for view or determine variable values for view
 - [ ] Views use helper methods if appropriate
