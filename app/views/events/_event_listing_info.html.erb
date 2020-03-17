@@ -1,0 +1,13 @@
+<% @events.each do |e| %>
+ <div class="listing">
+   <%= link_to event_path(e) do %>
+    <div class="movie-card">
+      <span class="movie-info">
+        <h3><%= e.event_title %></h3>
+        <p><%= event_date(e) %> at <%= event_time(e) %><br>
+          <%= e.location %></p>
+      </span>
+    </div>
+   <% end %>
+ </div>
+<% end %>
