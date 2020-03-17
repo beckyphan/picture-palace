@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
     @user = User.find_or_create_by(email: user_info['info']['email']) do |u|
       u.name = user_info['info']['name']
       u.username = user_info['info']['name'].gsub(/\s+/, "")
-      u.password = ENV['DEFAULT_PASSWORD']
+      u.password = ENV['DEFAULT_PASSWORD']      # set DEFAULT_PASSWORD in .env file along with GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET
       u.omniauth = true
     end
 
