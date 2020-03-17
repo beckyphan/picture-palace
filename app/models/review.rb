@@ -5,7 +5,6 @@ class Review < ApplicationRecord
   validates_presence_of :review_title, :rating
   validates :user_id, uniqueness: {scope: :movie_id, message: "has already written a review for this movie."}
 
-  scope :movie_review_counts, -> { self.self.group(:movie_id).count}
   scope :order_by_movie_with_most_reviews, -> { self.group(:movie_id).order("count(*)").count }
 
   def self.most_reviewed_movie

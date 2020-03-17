@@ -4,4 +4,8 @@ class Movie < ApplicationRecord
 
   has_many :reviews
   has_many :events
+
+  def avg_rating
+    self.reviews.average("rating").round
+  end
 end
