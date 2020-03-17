@@ -16,7 +16,7 @@ class EventsController < ApplicationController
     @event.host_id = current_user.id
 
     if @event.save
-      flash.now[:notice] = "Event Added!"
+      flash[:notice] = "Event Added!"
       redirect_to events_path
     else
       flash.now[:alert] = "Errors on page. Please correct:"
