@@ -13,6 +13,6 @@ class User < ApplicationRecord
   # foreign_key is referencing what column to look for in the Guestlist table
 
   has_many :movies, through: :reviews
-  has_many :comments, through: :events
+  has_many :comments
 
 end
