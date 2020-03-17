@@ -32,8 +32,8 @@ Specs:
 - [x] Include logout
 - [x] Include third party signup/login (how e.g. Devise/OmniAuth)
 - [x] Include nested resource show or index (URL e.g. users/2/recipes)
-      Comments are nested within an event
-      Reviews are nested within a movie
+      Comments are nested within an event; event_comment_path	GET	/events/:event_id/comments/:id(.:format)
+      Reviews are nested within a movie; movie_review_path	GET	/movies/:movie_id/reviews/:id(.:format)
 - [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
       new_event_comment_path	GET	/events/:event_id/comments/new(.:format)
       new_movie_review_path	GET	/movies/:movie_id/reviews/new(.:format)
@@ -56,4 +56,9 @@ Confirm:
         event_form
         event_listing
         movie_form
-        movie_review_form 
+        movie_review_form
+
+
+
+Future Features to Consider:
+- Addition of Search/Filter box for Movies or Events
