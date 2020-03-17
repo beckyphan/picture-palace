@@ -1,12 +1,9 @@
 <div class='page-title'>
-  <h1>events</h1>
+  <h1>past events</h1>
 </div>
 
-<div class="two-column-body">
-  <div class="column-2-left bubble-container">
+  <div class="bubble-container">
     <div class="gallery-listing">
-      <h2 class='center'>Upcoming Events</h2>
-      <h5 class='center'><%= link_to "See Past Events", events_past_path %></h5>
       <% @events.each do |e| %>
        <div class="listing">
          <%= link_to event_path(e) do %>
@@ -22,11 +19,3 @@
       <% end %>
     </div>
   </div>
-
-<br>
-
-  <div class="column-2-right bubble-container">
-    <span><h3>Add a New Event</h3></span>
-      <%= render "event_form" %>
-  </div>
-</div>

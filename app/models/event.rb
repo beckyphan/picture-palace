@@ -12,7 +12,8 @@ class Event < ApplicationRecord
   # foreign_key is referencing what column to look for in the Guestlist table
 
   scope :host, -> (host_object) { where('host_id = ?', host_object.id)}
-  scope :upcoming_events, -> { where('date_time > ?', DateTime.now) }
+  scope :upcoming, -> { where('date_time >= ?', DateTime.now) }
+  scope :past, -> { where('date_time < ?', DateTime.now) }
 
   def self.most_popular
     Guestlist.most_popular_event

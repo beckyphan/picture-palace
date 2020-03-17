@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   post 'sessions/login', to: 'sessions#login'
   delete 'sessions/logout', to:'sessions#logout'
 
+  get 'events/past', to: 'events#past'
+  
+  resources :events do
+    resources :guestlists, only: [:create, :update, :destroy]
+  end
+
   resources :events do
     resources :comments
   end
@@ -16,10 +22,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create, :edit, :show, :update, :destroy]
   get 'signup', to: 'users#new'
-
-  resources :events do
-    resources :guestlists, only: [:create, :update, :destroy]
-  end
 
   get '/auth/google_oauth2', to: 'sessions#new'
   get '/auth/google_oauth2/callback', to:'sessions#oauth_login'

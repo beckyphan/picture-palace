@@ -60,6 +60,12 @@
 
  }
 
+ .center {
+   margin: 0 auto;
+   justify-content: center;
+   text-align: center
+ }
+
 .form {
   margin: 0 auto;
   border-radius: 25px;
