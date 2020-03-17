@@ -18,11 +18,11 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
-  end
+  # def edit
+  # end
+  #
+  # def update
+  # end
 
   def show
     @hosted_events = Event.host(current_user)
@@ -31,8 +31,8 @@ class UsersController < ApplicationController
     @reviewed_movies = current_user.movies
   end
 
-  def destroy
-  end
+  # def destroy
+  # end
 
   private
 
