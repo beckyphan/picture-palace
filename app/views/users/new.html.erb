@@ -1,4 +1,6 @@
-<%= registration_errors(@user).html_safe %>
+<div class="errors-box">
+  <%= object_errors(@user) %>
+</div>
 <br>
 
 <h1>Registration</h1>
@@ -22,4 +24,10 @@
 
     <%= f.submit "Sign Up"%>
   <% end %>
+
+  <center>
+  <br>
+    <h4><%= link_to "Sign-Up/Log-In with Google", auth_google_oauth2_path %></h4>
+    <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
+  </center>
 </div>
