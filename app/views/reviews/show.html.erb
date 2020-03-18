@@ -3,7 +3,7 @@
   <%= movie_rating_stars(@review.rating) %>
   <br>
   <h1> <%= @review.review_title %> </h1>
-  <h3> <%= link_to @review.movie.movie_title, movie_path(@review.movie) %> Review by <%= @review.user.username %> </h3>
+  <h3> <%= link_to @review.movie.movie_title, movie_path(@review.movie) %> Review by <%= @review.viewer.username %> </h3>
 </div>
 
 <center>
@@ -11,7 +11,7 @@
   <%= @review.description %>
 </div>
 
-<% if @review.user == current_user %>
+<% if @review.viewer == current_user %>
   <br><br>
   <%= button_to "Update my Review", edit_movie_review_path(@review), method: 'get', class: 'button'%>
   <br>

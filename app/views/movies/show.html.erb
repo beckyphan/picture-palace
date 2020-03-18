@@ -50,7 +50,7 @@
         <%= link_to movie_review_path(review.movie, review) do %>
           <%= review.review_title %>
         <% end %>
-        by <%= review.user.username %>
+        by <%= review.viewer.username %>
       </p>
     <% end %>
 
