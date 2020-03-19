@@ -18,6 +18,7 @@
       <span><%= link_to_unless_current "Movies", movies_path, class: "nav-link" %></span>
       <span><%= link_to_unless_current "Events", events_path, class: "nav-link" %></span>
       <!-- <span><%= link_to "Log Out", sessions_logout_path, method: :delete %></span> -->
+      <!-- potentialy issue is because no javascript -->
       <span>
         <%= form_tag sessions_logout_path, method: "delete", class: "nav-link" do %>
         <%# want to format logout as a link instead %>
