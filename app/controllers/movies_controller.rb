@@ -30,6 +30,18 @@ class MoviesController < ApplicationController
     @movie = Movie.find_by_id(params[:id])
   end
 
+  def search
+    # binding.pry
+    @movie = Movie.find_by(movie_title: params[:movie][:movie_title])
+
+    if @movie
+      redirect_to movie_path(@movie)
+    else
+      flash[:alert] = "Movie not found."
+      redirect_to movies_path
+    end
+  end
+
   def show
     @movie = Movie.find_by_id(params[:id])
     @movie_events = @movie.events

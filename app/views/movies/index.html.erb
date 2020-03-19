@@ -8,6 +8,22 @@
       <%= render "movie_form", locals: { movie: @movie} %>
   </div>
 
+  <center>
+  <div>
+    <span>
+      <h3>Search for a Movie</h3>
+      <h5> Case-sensitive, EXACT title match only</h5>
+    </span>
+    <%= form_with model: @movie, url: movies_search_path do |f| %>
+      <br>
+      <%= f.label :movie_title, "Title" %>
+      <%= f.text_field :movie_title %> <br>
+      <br>
+      <%= f.submit "search" %>
+    <% end %>
+  </div>
+  </center>
+
 <br>
 
   <div class="gallery">

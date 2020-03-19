@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   delete 'sessions/logout', to:'sessions#logout'
 
   get 'events/past', to: 'events#past'
-  
+
+  post 'movies/search', to: 'movies#search'
+
   resources :events do
     resources :guestlists, only: [:create, :update, :destroy]
   end
