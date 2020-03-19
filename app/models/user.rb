@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   has_many :reviews, dependent: :destroy
 
+  # NOTE: association for host_id not being found when building
   has_many :events, foreign_key: 'host_id', dependent: :destroy # event.host => user
   # foreign_key is referencing what column to look for in the Event table
 
