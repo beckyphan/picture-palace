@@ -1,6 +1,7 @@
 class Guestlist < ApplicationRecord
   belongs_to :event
   belongs_to :attendee, class_name: "User"
+  
   validate :not_attending_as_host
   validate :past_event_error
 
